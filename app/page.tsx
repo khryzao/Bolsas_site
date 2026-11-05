@@ -45,8 +45,11 @@ const bags = [
   "Bolsa 09.jpeg",
   "Bolsa 10.jpeg",
   "Bolsa 11.jpeg",
-  "Bolsa 12.jpeg",\n  " Bolsa 09.jpeg"
-];\n\nconst categories = [
+  "Bolsa 12.jpeg",
+  " Bolsa 09.jpeg"
+];
+
+const categories = [
   { title: "Bolsas", detail: "O detalhe que transforma", image: "/Bolsa%2001.jpeg", href: "#bolsas" },
   { title: "Roupas", detail: "Peças para expressar seu estilo", image: "/Roupa%2003.jpeg", href: "#roupas" },
   { title: "Acessórios", detail: "Seu estilo em cada detalhe", image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85", href: "#contato" }
@@ -61,7 +64,8 @@ export default function Home() {
   const [menu, setMenu] = useState(false);
   const reduceMotion = useReducedMotion();
   const whatsapp = "https://wa.me/5516992863119?text=Ol%C3%A1%2C%20quero%20conhecer%20as%20novidades%20da%20Confiante%20e%20Graciosa!";
-  const bagWhatsapp = (number: number, name: string) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na bolsa " + name + ". Ela ainda está disponível?");\n  const clothingWhatsapp = (number: number) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na peça de roupa " + String(number).padStart(2, "0") + " do site. Ela ainda está disponível?");
+  const bagWhatsapp = (number: number, name: string) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na bolsa " + name + ". Ela ainda está disponível?");
+  const clothingWhatsapp = (number: number) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na peça de roupa " + String(number).padStart(2, "0") + " do site. Ela ainda está disponível?");
   const reveal = reduceMotion ? {} : { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.18 }, variants: fadeUp };
   return <motion.main initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.55 }}>
     <div className="announcement">ELEGÂNCIA QUE ACOMPANHA VOCÊ</div>
