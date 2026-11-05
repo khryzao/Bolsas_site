@@ -51,6 +51,7 @@ const bags = [
 
 
 const accessories = [
+  "Acessorios Image 2026-11-05 at 17.07.04.jpeg",
   "Acessorios Image 2026-11-05 at 17.07.04 (1).jpeg",
   "Acessorios Image 2026-11-05 at 17.07.04 (2).jpeg",
   "Acessorios Image 2026-11-05 at 17.07.04 (3).jpeg",
