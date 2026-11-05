@@ -132,6 +132,10 @@ export default function Home() {
     </section>
     <section className="accessories-section" id="acessorios">
       <motion.div className="section-head" {...reveal}><div><p className="eyebrow">DETALHES QUE FAZEM A DIFERENÇA</p><h2>Acessórios para realçar <em>seu estilo.</em></h2></div><p>Explore nossa seleção e fale com a Carla para consultar disponibilidade e valores.</p></motion.div>
+      <motion.div className="accessories-cover" {...reveal}>
+        <img src={"/" + encodeURIComponent(accessories[0])} alt="Seleção de acessórios da Confiante e Graciosa" />
+        <div className="accessories-cover-overlay"><p className="eyebrow">CONFIANTE E GRACIOSA</p><h3>O toque final do seu estilo.</h3></div>
+      </motion.div>
       <div className="accessories-grid">{accessories.map((photo, index) => <motion.article className="accessory-card" key={photo} initial={reduceMotion ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.45, delay: reduceMotion ? 0 : (index % 4) * 0.07 }} whileHover={reduceMotion ? undefined : { y: -5 }}>
         <a className="accessory-photo" href={"/" + encodeURIComponent(photo)} target="_blank" rel="noreferrer" aria-label={"Ampliar foto do acessório " + (index + 1)}><img src={"/" + encodeURIComponent(photo)} alt={"Acessório " + String(index + 1).padStart(2, "0") + " da Confiante e Graciosa"} loading={index < 4 ? "eager" : "lazy"}/></a>
         <div className="clothing-info"><div><h3>Acessório {String(index + 1).padStart(2, "0")}</h3><p>Consulte disponibilidade</p></div><a href={accessoryWhatsapp(index + 1)} target="_blank" rel="noreferrer" aria-label={"Consultar acessório " + (index + 1)} title="Consultar no WhatsApp"><ArrowUpRight size={18} strokeWidth={1.5}/></a></div>
