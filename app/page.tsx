@@ -45,7 +45,7 @@ const bags = [
   "Bolsa 09.jpeg",
   "Bolsa 10.jpeg",
   "Bolsa 11.jpeg",
-  "Bolsa 12.jpeg"
+  "Bolsa 12.jpeg",\n  " Bolsa 09.jpeg"
 ];\n\nconst categories = [
   { title: "Bolsas", detail: "O detalhe que transforma", image: "/Bolsa%2001.jpeg", href: "#bolsas" },
   { title: "Roupas", detail: "Peças para expressar seu estilo", image: "/Roupa%2003.jpeg", href: "#roupas" },
