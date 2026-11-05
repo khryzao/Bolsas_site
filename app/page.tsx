@@ -34,8 +34,20 @@ const clothes = [
   "WhatsApp Image 2026-11-04 at 19.53.54.jpeg"
 ];
 
-const categories = [
-  { title: "Bolsas", detail: "O detalhe que transforma", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85", href: "#contato" },
+const bags = [
+  "Bolsa 01.jpeg",
+  "Bolsa 02.jpeg",
+  "Bolsa 03.jpeg",
+  "Bolsa 04.jpeg",
+  "Bolsa 05.jpeg",
+  "Bolsa 07.jpeg",
+  "Bolsa 08.jpeg",
+  "Bolsa 09.jpeg",
+  "Bolsa 10.jpeg",
+  "Bolsa 11.jpeg",
+  "Bolsa 12.jpeg"
+];\n\nconst categories = [
+  { title: "Bolsas", detail: "O detalhe que transforma", image: "/Bolsa%2001.jpeg", href: "#bolsas" },
   { title: "Roupas", detail: "Peças para expressar seu estilo", image: "/Roupa%2003.jpeg", href: "#roupas" },
   { title: "Acessórios", detail: "Seu estilo em cada detalhe", image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85", href: "#contato" }
 ];
@@ -49,7 +61,7 @@ export default function Home() {
   const [menu, setMenu] = useState(false);
   const reduceMotion = useReducedMotion();
   const whatsapp = "https://wa.me/5516992863119?text=Ol%C3%A1%2C%20quero%20conhecer%20as%20novidades%20da%20Confiante%20e%20Graciosa!";
-  const clothingWhatsapp = (number: number) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na peça de roupa " + String(number).padStart(2, "0") + " do site. Ela ainda está disponível?");
+  const bagWhatsapp = (number: number, name: string) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na bolsa " + name + ". Ela ainda está disponível?");\n  const clothingWhatsapp = (number: number) => "https://wa.me/5516992863119?text=" + encodeURIComponent("Olá, Carla! Tenho interesse na peça de roupa " + String(number).padStart(2, "0") + " do site. Ela ainda está disponível?");
   const reveal = reduceMotion ? {} : { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.18 }, variants: fadeUp };
   return <motion.main initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.55 }}>
     <div className="announcement">ELEGÂNCIA QUE ACOMPANHA VOCÊ</div>
@@ -57,7 +69,7 @@ export default function Home() {
       <a className="brand" href="#"><span className="brand-name">CONFIANTE <i>&</i> GRACIOSA</span><span className="brand-sub">MODA · ACESSÓRIOS · VOCÊ</span></a>
       <button className="menu-toggle" onClick={() => setMenu(!menu)} aria-label={menu ? "Fechar menu" : "Abrir menu"}>{menu ? <X size={22} strokeWidth={1.6}/> : <Menu size={22} strokeWidth={1.6}/>}</button>
       <AnimatePresence>
-        <motion.nav className={menu ? "nav nav-open" : "nav"} initial={false} animate={{ opacity: menu ? 1 : 1, y: 0 }}><a href="#colecoes" onClick={() => setMenu(false)}>Coleções</a><a href="#sobre" onClick={() => setMenu(false)}>Nossa essência</a><a href="#contato" onClick={() => setMenu(false)}>Contato</a></motion.nav>
+        <motion.nav className={menu ? "nav nav-open" : "nav"} initial={false} animate={{ opacity: menu ? 1 : 1, y: 0 }}><a href="#colecoes" onClick={() => setMenu(false)}>Coleções</a><a href="#bolsas" onClick={() => setMenu(false)}>Bolsas</a><a href="#sobre" onClick={() => setMenu(false)}>Nossa essência</a><a href="#contato" onClick={() => setMenu(false)}>Contato</a></motion.nav>
       </AnimatePresence>
       <a className="header-link" href={whatsapp} target="_blank" rel="noreferrer">Fale conosco <ArrowUpRight size={14}/></a>
     </header>
@@ -66,6 +78,13 @@ export default function Home() {
     <section className="collections" id="colecoes">
       <motion.div className="section-head" {...reveal}><div><p className="eyebrow">ESCOLHAS COM PERSONALIDADE</p><h2>Encontre o seu <em>estilo.</em></h2></div><p>Inspire-se e encontre detalhes que fazem toda a diferença.</p></motion.div>
       <div className="category-grid">{categories.map((item, index) => <motion.a className="category" href={item.href} key={item.title} initial={reduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55, delay: reduceMotion ? 0 : index * 0.12 }} whileHover={reduceMotion ? undefined : { y: -7 }}><div className="category-image" style={{backgroundImage: "url(" + item.image + ")"}}><span>0{index + 1}</span><b><ArrowUpRight size={18} strokeWidth={1.5}/></b></div><h3>{item.title}</h3><p>{item.detail}</p></motion.a>)}</div>
+    </section>
+    <section className="bags-section" id="bolsas">
+      <motion.div className="section-head" {...reveal}><div><p className="eyebrow">ACESSÓRIOS QUE ENCANTAM</p><h2>Bolsas para cada <em>momento.</em></h2></div><p>Escolha seu modelo favorito e consulte disponibilidade diretamente com a Carla.</p></motion.div>
+      <div className="bags-grid">{bags.map((photo, index) => <motion.article className="bag-card" key={photo} initial={reduceMotion ? false : { opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.45, delay: reduceMotion ? 0 : (index % 4) * 0.07 }} whileHover={reduceMotion ? undefined : { y: -5 }}>
+        <a className="bag-photo" href={"/" + encodeURIComponent(photo)} target="_blank" rel="noreferrer" aria-label={"Ampliar foto da bolsa " + (index + 1)}><img src={"/" + encodeURIComponent(photo)} alt={"Bolsa modelo " + String(index + 1).padStart(2, "0") + " da Confiante e Graciosa"} loading={index < 4 ? "eager" : "lazy"}/></a>
+        <div className="clothing-info"><div><h3>Bolsa {String(index + 1).padStart(2, "0")}</h3><p>Consulte disponibilidade</p></div><a href={bagWhatsapp(index + 1, "Bolsa " + String(index + 1).padStart(2, "0"))} target="_blank" rel="noreferrer" aria-label={"Consultar bolsa " + (index + 1)} title="Consultar no WhatsApp"><ArrowUpRight size={18} strokeWidth={1.5}/></a></div>
+      </motion.article>)}</div>
     </section>
     <section className="clothing-section" id="roupas">
       <motion.div className="section-head" {...reveal}><div><p className="eyebrow">NOVIDADES DA LOJA</p><h2>Roupas que combinam<br/><em>com você.</em></h2></div><p>Confira as peças disponíveis e fale com a Carla para consultar tamanhos e valores.</p></motion.div>
