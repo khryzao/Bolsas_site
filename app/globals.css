@@ -36,3 +36,7 @@ footer{background:#171a16;color:#e8e4da;padding:48px 8% 28px;display:flex;align-
 .category-image b{font-weight:400}
 .gold-button svg,.header-link svg,.clothing-info>a svg,footer>a svg{flex:0 0 auto}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* Preserve menu visibility rules after icon display styles */
+.menu-toggle{display:none}
+@media(max-width:760px){.menu-toggle{display:inline-flex}}
