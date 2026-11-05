@@ -28,3 +28,11 @@ footer{background:#171a16;color:#e8e4da;padding:48px 8% 28px;display:flex;align-
 .clothing-info>a:hover{background:var(--gold)}
 @media(max-width:900px){.clothing-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 14px}.clothing-section{padding-left:6%;padding-right:6%}}
 @media(max-width:560px){.clothing-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.clothing-section{padding:65px 5% 75px}.clothing-info h3{font-size:15px}}
+
+
+/* Ícones Lucide e microinterações */
+.menu-toggle,.header-link,.gold-button,.category-image b,.clothing-info>a,footer>a{display:inline-flex;align-items:center;justify-content:center;gap:9px}
+.menu-toggle{color:var(--moss);cursor:pointer}
+.category-image b{font-weight:400}
+.gold-button svg,.header-link svg,.clothing-info>a svg,footer>a svg{flex:0 0 auto}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
